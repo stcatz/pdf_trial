@@ -2,9 +2,36 @@
 %html
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title PDF reader 
+    %title PDF reader
+    =stylesheet_link_tag "/stylesheets/bootstrap"
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
     =yield_content :head
   %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          =link_to "PDF reader", '#', :class => 'brand', :style => 'float:center'
+
+    .container-fluid
+      .row-fluid
+        .span2
+          .well.sidebar-nav
+            %ul.nav.nav-list
+              %li.nav-header='Menu'
+              %li.active=link_to "PDF list", '#'
+              %li=link_to "upload file", '#'
+              %li=link_to '', '#'
+        .span10
+          =yield
+
+  -#
     .header
       = yield_content :body_head
     #flash_info
