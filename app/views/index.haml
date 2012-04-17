@@ -1,2 +1,18 @@
+
+%ul.breadcrumb
+  %li='File list'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th='file name'
+      %th='updae at'
+      %th=''
+  %tbody
+    %tr
+      %td='test'
+      %td='test'
+      %td
+        %a{:class => 'icon-remove', :href => '#'}
 -@files.each do |name, path|
   =link_to name, url(:show, :id => name)
