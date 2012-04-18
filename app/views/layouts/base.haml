@@ -25,8 +25,8 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header='Menu'
-              %li.active=link_to "PDF list", '#'
-              %li=link_to "upload file", '#'
+              %li.active=link_to "PDF list", url(:index)
+              %li=link_to "Upload file", url(:new)
               %li=link_to '', '#'
         .span10
           =yield

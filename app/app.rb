@@ -66,4 +66,12 @@ class PdfPilot < Padrino::Application
 
   UPLOAD_PATH = File.join(root, '../public/files')
 
+  class PdfFile
+    attr_accessor :name, :created_at, :path
+    def initialize(name, created_at, path)
+      @name = name
+      @created_at = created_at
+      @path = path
+    end
+  end
 end

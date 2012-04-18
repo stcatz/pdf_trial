@@ -1,10 +1,14 @@
+
 PdfPilot.controllers  do
   layout :base
 
   get :index do
   	@all_file = Dir.glob File.join( PdfPilot::UPLOAD_PATH, '*.pdf')
-  	@files = {}
-  	@all_file.map{ |a| @files[a.split('/').last ] = a }
+  	@files = []
+    @all_file.each do |f|
+      @files << PdfFile.new(f.split('/').last, File.ctime(f), f)
+    end
+
     render :index
   end
 
@@ -28,6 +32,11 @@ PdfPilot.controllers  do
         end
       end
     end
+    redirect url(:index)
+  end
+
+  get :destroy, :with => :id do
+    File.delete File.join( PdfPilot::UPLOAD_PATH, params[:id] )
     redirect url(:index)
   end
 

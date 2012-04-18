@@ -6,13 +6,11 @@
   %thead
     %tr
       %th='file name'
-      %th='updae at'
+      %th='created at'
       %th=''
   %tbody
-    %tr
-      %td='test'
-      %td='test'
-      %td
-        %a{:class => 'icon-remove', :href => '#'}
--@files.each do |name, path|
-  =link_to name, url(:show, :id => name)
+    -@files.each do |f|
+      %tr
+        %td=link_to f.name, url(:show, f.name).encode
+        %td=f.created_at
+        %td=link_to '', url(:destroy, :id => f.name), :method => :delete, :class => 'icon-remove', :onclick => "return confirm('Are you sure ?')"

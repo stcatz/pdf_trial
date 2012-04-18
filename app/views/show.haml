@@ -1,1 +1,4 @@
-%embed{ :height => '100%', :width => '100%', :name => :plugin, :type => "application/pdf", :src => "/files/#{@file_name}" }
+%ul.breadcrumb{:style => 'margin-bottom: 0px'}
+  %li=@file_name
+
+%embed{ :height => '850px', :width => '100%', :name => :plugin, :type => "application/pdf", :src => "/files/#{@file_name}" }
