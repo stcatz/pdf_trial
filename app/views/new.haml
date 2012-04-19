@@ -1,4 +1,10 @@
--form_tag url(:create), :enctype => "multipart/form-data" do
+%ul.breadcrumb
+  %li=t(:upload_file)
+
+
+-form_tag url(:create), :enctype => "multipart/form-data", :class => 'well' do
   =input_tag :file, :name => 'pdf_file'
-  =input_tag :submit, :name => 'save'
+  %br
+  %button{ :type =>:submit, :class => 'btn btn-primary' }=t(:upload)
+
 

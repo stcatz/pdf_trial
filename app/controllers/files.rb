@@ -24,6 +24,7 @@ PdfPilot.controllers  do
   end
 
   post :create do
+    redirect url(:new) if params[:pdf_file].nil?
     temp_file = params[:pdf_file][:tempfile]
     diskfile = File.join(PdfPilot::UPLOAD_PATH, params[:pdf_file][:filename])
     if temp_file.size > 0

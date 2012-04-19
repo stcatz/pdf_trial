@@ -1,4 +1,11 @@
 %ul.breadcrumb{:style => 'margin-bottom: 0px'}
   %li=@file_name
+  %li{:style => 'float:right'}
+    %i.icon-picture
+    =link_to t(:full_screen), url("files/#{@file_name}")
+    =' | '
+    %i.icon-share-alt
+    =link_to t(:back), url(:index)
+
 
 %embed{ :height => '850px', :width => '100%', :name => :plugin, :type => "application/pdf", :src => "/files/#{@file_name}" }

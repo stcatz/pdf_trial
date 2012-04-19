@@ -1,16 +1,18 @@
 
 %ul.breadcrumb
-  %li='File list'
+  %li=t(:file_list_all)
 
 %table.table.table-striped
   %thead
     %tr
-      %th='file name'
-      %th='created at'
+      %th=t(:file_name)
+      %th=t(:created_at)
       %th=''
   %tbody
     -@files.each do |f|
       %tr
         %td=link_to f.name, url(:show, f.name).encode
         %td=f.created_at
-        %td=link_to '', url(:destroy, :id => f.name), :method => :delete, :class => 'icon-remove', :onclick => "return confirm('Are you sure ?')"
+        %td
+          %i.icon-remove
+          =link_to t(:delete), url(:destroy, :id => f.name), :method => :delete, :onclick => "return confirm('Are you sure ?')"

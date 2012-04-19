@@ -17,16 +17,17 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
-          =link_to "PDF reader", '#', :class => 'brand', :style => 'float:center'
+          =link_to t(:title), url(:index), :class => 'brand', :style => 'float:center'
 
     .container-fluid
       .row-fluid
         .span2
           .well.sidebar-nav
             %ul.nav.nav-list
-              %li.nav-header='Menu'
-              %li.active=link_to "PDF list", url(:index)
-              %li=link_to "Upload file", url(:new)
+              %li.nav-header=t(:menu)
+              %li{ :class => is_active(:other)}=link_to t(:file_list), url(:index)
+              %li{ :class => is_active(:new)}=link_to t(:upload_file), url(:new)
+              %li=link_to '', '#'
               %li=link_to '', '#'
         .span10
           =yield
