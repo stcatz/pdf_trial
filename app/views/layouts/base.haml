@@ -25,8 +25,15 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header=t(:menu)
-              %li{ :class => is_active(:other)}=link_to t(:file_list), url(:index)
-              %li{ :class => is_active(:new)}=link_to t(:upload_file), url(:new)
+              %li{ :class => is_active(:other)}
+                %a{ :href =>  url(:index) }
+                  %i.icon-th-list
+                  =t(:file_list)
+              //=link_to t(:file_list), url(:index)
+              %li{ :class => is_active(:new)}
+                %a{ :href =>  url(:new) }
+                  %i.icon-plus-sign
+                  =t(:upload_file)
               %li=link_to '', '#'
               %li=link_to '', '#'
         .span10
