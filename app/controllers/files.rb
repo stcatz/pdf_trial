@@ -6,7 +6,8 @@ PdfPilot.controllers  do
   	@all_file = Dir.glob File.join( PdfPilot::UPLOAD_PATH, '*.pdf')
   	@files = []
     @all_file.each do |f|
-      @files << PdfFile.new(f.split('/').last, File.ctime(f), f)
+      f.force_encoding(Encoding::UTF_8)
+      @files << PdfPilot::PdfFile.new(f.split('/').last, File.ctime(f), f)
     end
 
     render :index
@@ -17,6 +18,7 @@ PdfPilot.controllers  do
   end
 
   get :show, :with => :id do
+    p params[:id]
     @file_name = params[:id]
     render :show
   end
