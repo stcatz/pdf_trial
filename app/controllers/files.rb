@@ -17,8 +17,7 @@ PdfPilot.controllers  do
   end
 
   get :show, :with => :id do
-    p params[:id]
-    @file_name = params[:id]
+    @file_name = params[:id].force_encoding(Encoding::UTF_8)
     render :show
   end
 
