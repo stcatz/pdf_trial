@@ -11,7 +11,7 @@
   %tbody
     -@files.each do |f|
       %tr
-        %td=link_to f.name, url(:show, f.name).encode
+        %td=link_to f.name, url(:show, f.name)
         %td=f.created_at
         %td
           %i.icon-remove

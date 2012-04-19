@@ -2,7 +2,7 @@
   %li=@file_name
   %li{:style => 'float:right'}
     %i.icon-picture
-    =link_to t(:full_screen), "/files/#{@file_name}"
+    %a{:href => "/files/#{@file_name}"}=t(:full_screen)
     =' | '
     %i.icon-share-alt
     =link_to t(:back), url(:index)
